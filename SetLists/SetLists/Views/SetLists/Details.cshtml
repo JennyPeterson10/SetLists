@@ -1,0 +1,45 @@
+﻿@model SetLists.Models.SetList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SetList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.Songs)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Song Title</th>
+                </tr>
+                @foreach (var item in Model.Songs)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SongID)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SetListID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

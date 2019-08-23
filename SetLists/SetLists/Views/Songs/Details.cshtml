@@ -1,0 +1,61 @@
+﻿@model SetLists.Models.Song
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Song</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Key)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Key)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.SongSetLists)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Set List Title</th>
+                </tr>
+                @foreach (var item in Model.SongSetLists)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SetList.Title)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SongID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
